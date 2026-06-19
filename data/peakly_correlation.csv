@@ -1,0 +1,17 @@
+﻿Ticker_A,Ticker_B,Correlation,Intensite
+SPOT,SPOT,1.0,Forte
+UMG.AS,SPOT,0.6,Modérée
+WMG,SPOT,0.092,Faible
+LYV,SPOT,0.905,Forte
+SPOT,UMG.AS,0.6,Modérée
+UMG.AS,UMG.AS,1.0,Forte
+WMG,UMG.AS,0.37,Faible
+LYV,UMG.AS,0.45,Modérée
+SPOT,WMG,0.092,Faible
+UMG.AS,WMG,0.37,Faible
+WMG,WMG,1.0,Forte
+LYV,WMG,0.199,Faible
+SPOT,LYV,0.905,Forte
+UMG.AS,LYV,0.45,Modérée
+WMG,LYV,0.199,Faible
+LYV,LYV,1.0,Forte
