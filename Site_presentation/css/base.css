@@ -1,0 +1,78 @@
+/* BASE.CSS Pas de classes ici : uniquement des sélecteurs de balises. */
+
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+  height: 100%;
+}
+
+body{
+  background: var(--color-black);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  position: relative;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3, h4{
+  font-family: var(--font-display);
+}
+
+ul{
+  list-style: none;
+}
+
+svg.icon_inline{
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+table th, table td{
+  padding: 9px 14px;
+  border-bottom: var(--border-thin) solid var(--color-border);
+  text-align: left;
+}
+
+table th{
+  color: var(--color-text-muted);
+  font-weight: 700;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table tr:last-child td{
+  border-bottom: none;
+}
+
+/* Respecte les personnes sensibles au mouvement : coupe toutes les animations */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

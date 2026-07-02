@@ -1,0 +1,374 @@
+/*
+   ANIMATIONS.CSS
+   Toutes les animations "modernes" du site :
+   - écran de lancement (splash) sur la page d'accueil
+   - transitions entre les pages
+   - curseur personnalisé qui suit la souris
+   - effet d'apparition progressive des blocs ("reveal") à l'arrivée sur une page
+ */
+
+/* Écran de lancement (index.html uniquement)*/
+
+.launch_screen{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 18px;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.launch_screen.is_hidden{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.launch_logo{
+  width: 120px;
+  height: auto;
+  opacity: 0;
+  animation: launch_logo_in 1s ease forwards 0.15s;
+}
+
+.launch_bar_track{
+  width: 180px;
+  height: 2px;
+  background: var(--color-border);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.launch_bar_fill{
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-bright));
+  animation: launch_bar_grow 1.1s ease forwards 0.25s;
+}
+
+.launch_label{
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  opacity: 0;
+  animation: launch_logo_in 0.8s ease forwards 0.4s;
+}
+
+@keyframes launch_logo_in{
+  from{ opacity: 0; transform: translateY(8px) scale(0.96); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes launch_bar_grow{
+  from{ width: 0%; }
+  to{ width: 100%; }
+}
+
+/* Transition d'entrée / sortie de page  */
+
+/* Voile plein écran utilisé pour masquer le changement de page (fade to black-gold) */
+.page_transition_veil{
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: var(--color-black);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.page_transition_veil.is_active{
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Le contenu de la page apparaît en fondu + léger décalage vertical à l'arrivée */
+body{
+  animation: page_fade_in 0.5s ease both;
+}
+
+@keyframes page_fade_in{
+  from{ opacity: 0; transform: translateY(8px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* Curseur personnalisé */
+
+/* Masque le curseur natif uniquement sur les écrans avec souris (pas sur tactile) */
+@media (hover: hover) and (pointer: fine){
+  body.has_custom_cursor{
+    cursor: none;
+  }
+  body.has_custom_cursor a,
+  body.has_custom_cursor button{
+    cursor: none;
+  }
+}
+
+.cursor_dot{
+  position: fixed;
+  top: 0; left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+.cursor_ring{
+  position: fixed;
+  top: 0; left: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: var(--border-thin) solid var(--color-gold-dim);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.18s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
+
+/* Le curseur grossit légèrement au survol d'un élément cliquable */
+.cursor_ring.is_hovering{
+  width: 50px;
+  height: 50px;
+  border-color: var(--color-gold);
+  background: var(--color-gold-soft);
+}
+
+/* Reveal : apparition progressive des blocs au chargement*/
+
+.reveal_item{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal_item.is_visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.audio_toggle{
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  z-index: 300;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: var(--border-thin) solid var(--color-border);
+  background: rgba(20, 17, 12, 0.78);
+  backdrop-filter: blur(10px);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--speed-fast);
+}
+
+.audio_toggle:hover{
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: var(--color-gold-soft);
+}
+
+.audio_toggle.is_playing{
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  box-shadow: var(--shadow-gold-glow);
+}
+
+.audio_toggle .icon_muted{ display: block; }
+.audio_toggle .icon_playing{ display: none; }
+.audio_toggle.is_playing .icon_muted{ display: none; }
+.audio_toggle.is_playing .icon_playing{ display: block; }
+
+@media (max-width: 700px){
+  .audio_toggle{ width: 38px; height: 38px; left: 8px; }
+}
+
+.hero_bokeh{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    transform-origin:center;
+    will-change:transform, opacity;
+}
+
+.spot_1{
+    animation: spotlightLeft 4s ease-in-out infinite alternate;
+}
+
+@keyframes spotlightLeft{
+
+    0%{
+        transform:translate(0,0) rotate(-6deg) scale(1);
+        opacity:.14;
+    }
+
+    50%{
+        transform:translate(40px,20px) rotate(2deg) scale(1.08);
+        opacity:.22;
+    }
+
+    100%{
+        transform:translate(80px,-25px) rotate(8deg) scale(.98);
+        opacity:.16;
+    }
+
+}
+
+.spot_2{
+    animation: spotlightRight 2s ease-in-out infinite alternate;
+}
+
+@keyframes spotlightRight{
+
+    0%{
+        transform:translate(0,0) rotate(8deg) scale(1);
+        opacity:.12;
+    }
+
+    50%{
+        transform:translate(-35px,-15px) rotate(0deg) scale(1.05);
+        opacity:.20;
+    }
+
+    100%{
+        transform:translate(-70px,25px) rotate(-7deg) scale(.95);
+        opacity:.14;
+    }
+
+}
+
+.spot_3{
+    animation: spotlightCenter 8s ease-in-out infinite alternate;
+}
+
+@keyframes spotlightCenter{
+
+    0%{
+        transform:translate(0,0) scale(1);
+        opacity:.10;
+    }
+
+    50%{
+        transform:translate(-30px,-40px) scale(1.15);
+        opacity:.18;
+    }
+
+    100%{
+        transform:translate(25px,15px) scale(1);
+        opacity:.12;
+    }
+
+}
+
+.particles{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+    isolation:isolate;
+}
+
+.particle,
+.hero_particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    border-radius:50%;
+    background:radial-gradient(circle,
+        rgba(255,230,160,1),
+        rgba(212,175,55,.8),
+        transparent);
+    box-shadow:0 0 12px rgba(212,175,55,.5);
+    animation:floatParticle linear infinite;
+    will-change:transform, opacity;
+}
+
+.money_layer{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.money_bill{
+    position: absolute;
+    border-radius: 3px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(204, 255, 204, 0.75));
+    border: 1px solid rgba(90, 180, 90, 0.6);
+    box-shadow: 0 0 10px rgba(140, 220, 140, 0.25);
+    transform: rotate(-6deg);
+    animation: moneyFall linear infinite;
+    will-change: transform, opacity;
+}
+
+.money_bill::before{
+    content: "$";
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65em;
+    font-weight: 800;
+    color: rgba(44, 132, 44, 0.9);
+    font-family: var(--font-display);
+}
+
+@keyframes moneyFall{
+    0%{
+        transform: translate3d(0, 0, 0) rotate(-6deg);
+    }
+    25%{
+        transform: translate3d(20px, 35vh, 0) rotate(8deg);
+    }
+    50%{
+        transform: translate3d(calc(var(--drift) * 0.5), 70vh, 0) rotate(-6deg);
+    }
+    75%{
+        transform: translate3d(calc(var(--drift) * 0.8), 110vh, 0) rotate(5deg);
+    }
+    100%{
+        transform: translate3d(var(--drift), 160vh, 0) rotate(-8deg);
+    }
+}
+
+@keyframes floatParticle{
+
+    0%{
+        transform: translate3d(0, 0, 0);
+    }
+
+    25%{
+        transform: translate3d(20px, -35px, 0);
+    }
+
+    50%{
+        transform: translate3d(-15px, -70px, 0);
+    }
+
+    75%{
+        transform: translate3d(30px, -110px, 0);
+    }
+
+    100%{
+        transform: translate3d(-10px, -160px, 0);
+    }
+
+}

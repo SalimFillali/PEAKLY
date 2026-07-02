@@ -1,0 +1,68 @@
+/* =====================================================================
+   VARIABLES.CSS
+   Toutes les valeurs réglables du site : couleurs, polices, rayons, ombres.
+   -> C'est LE fichier à ouvrir en premier si tu veux changer une couleur
+      ou une police partout sur le site en une seule fois.
+   ===================================================================== */
+
+:root{
+
+  /* ---- Couleurs de fond ---- */
+  --color-black:        #0B0A08;   /* fond général du site */
+  --color-black-soft:   #121016;   /* fond des sections légèrement différencié */
+  --color-panel:        rgba(20, 17, 12, 0.82);  /* fond des cartes (avec transparence) */
+  --color-panel-solid:  #15130E;   /* fond plein pour les KPI / blocs contrastés */
+  --color-border:       rgba(212, 175, 55, 0.14); /* bordure discrète, teinte or */
+
+  /* ---- Or : couleur d'accent unique du site ---- */
+  --color-gold:         #D4AF37;   /* or principal : titres, liens actifs, bordures fortes */
+  --color-gold-bright:  #F1D272;   /* or clair : hover, éclat, texte sur fond sombre */
+  --color-gold-soft:    rgba(212, 175, 55, 0.14); /* fond or très léger (tags, badges) */
+  --color-gold-dim:     rgba(212, 175, 55, 0.35); /* bordure or, intensité moyenne */
+
+  /* ---- Couleurs fonctionnelles (données financières) ---- */
+  --color-success:      #22C55E;   /* hausse, positif, validé */
+  --color-success-soft: rgba(34, 197, 94, 0.12);
+  --color-danger:       #F43F5E;   /* baisse, négatif, refusé */
+  --color-danger-soft:  rgba(244, 63, 94, 0.13);
+  --color-neutral:      #94A3B8;   /* données neutres dans les graphiques */
+  --color-neutral-dark: #475569;
+
+  /* ---- Texte ---- */
+  --color-text:         #F8F5EC;   /* texte principal, blanc cassé chaud */
+  --color-text-muted:   #A79E8C;   /* texte secondaire, gris chaud */
+
+  /* ---- Typographie ---- */
+  --font-display: 'Plus Jakarta Sans', sans-serif;  /* titres */
+  --font-body:    'Inter', Helvetica, Arial, sans-serif; /* texte courant */
+
+  /* ---- Rayons de bordure ---- */
+  --radius-small:  8px;
+  --radius-medium: 14px;
+  --radius-large:  16px;
+  --radius-pill:   999px;
+
+  /* ---- Épaisseurs de bordure ---- */
+  --border-thin:   1px;
+  --border-thick:  2px;
+
+  /* ---- Ombres ---- */
+  --shadow-soft:   0 8px 24px rgba(194, 188, 152, 0.35);
+  --shadow-gold-glow: 0 0 24px rgba(212, 175, 55, 0.18);
+
+  /* ---- Espacements ---- */
+  --gap-xs: 6px;
+  --gap-sm: 12px;
+  --gap-md: 18px;
+  --gap-lg: 28px;
+  --gap-xl: 40px;
+
+  /* ---- Dimensions structurelles ---- */
+  --nav-height: 72px;
+  --content-max-width: 1240px;
+
+  /* ---- Vitesses d'animation ---- */
+  --speed-fast:   0.2s;
+  --speed-normal: 0.4s;
+  --speed-slow:   0.7s;
+}
