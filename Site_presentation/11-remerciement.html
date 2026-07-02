@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peakly — Remerciements</title>
+<meta name="description" content="Peakly Connect — plateforme de mise en relation entre talents musicaux émergents et professionnels de l'industrie, avec scoring data et analyse financière du marché.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+
+</head>
+<body id="remerciements">
+  <div class="money_layer"></div>
+
+<audio id="ambient_audio" src="assets/audio/ambiance.mp3" loop preload="none"></audio>
+
+<button class="audio_toggle" id="audio_toggle_btn" type="button" aria-pressed="false" aria-label="Activer la musique d'ambiance">
+  <svg class="icon_muted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+  <svg class="icon_playing" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+</button>
+
+<header class="header_main">
+  <div class="header_inner">
+    <div class="logo_mark">
+      <img src="assets/images/LOGO_PEAKLY_NAV.png" alt="Peakly" class="logo_image">
+    </div>
+    <nav class="nav_links">
+      <a href="index.html">Peakly</a>
+      <a href="02-à-propos.html">Clients</a>
+      <a href="03-mission-objectifs.html">Le produit</a>
+      <a href="04-méthode-outils.html">Méthodologie</a>
+      <a href="05-axes-d'analyse.html">Market & data</a>
+      <a href="06-visualisations.html">Business</a>
+      <a href="08-perspectives-evolution.html">What's next</a>
+      <a href="11-remerciement.html" class="is_active">Remerciements</a>
+    </nav>
+  </div>
+</header>
+
+<a class="nav_arrow prev" href="10-our-team.html" aria-label="Diapositive précédente">&#8249;</a>
+<a class="nav_arrow next is_disabled" href="#" aria-label="Diapositive suivante">&#8250;</a>
+<nav class="nav_dots">
+    <a class="dot is_active" href="index.html" aria-label="Aller à : Peakly"></a>
+    <a class="dot" href="02-à-propos.html" aria-label="Aller à : Notre Client "></a>
+    <a class="dot" href="03-mission_objectifs.html" aria-label="Aller à : Notre mission & objectifs"></a>
+    <a class="dot" href="04-méthode_outils.html" aria-label="Aller à : Notre méthode & outils"></a>
+    <a class="dot" href="05-axes-d'analyse.html" aria-label="Aller à : Analytic"></a>
+    <a class="dot" href="06-visualisations.html" aria-label="Aller à : Dashboard Power BI"></a>
+    <a class="dot" href="07-recommandations.html" aria-label="Aller à : Notre vision"></a>
+    <a class="dot" href="08-perspectives-evolution.html" aria-label="Aller à : Notre future"></a>
+    <a class="dot" href="09-conclusion.html" aria-label="Aller à : Conclusion"></a>
+    <a class="dot" href="10-our-team.html" aria-label="Aller à : Nous"></a>
+    <a class="dot" href="11-remerciement.html" aria-label="Aller à : Remerciements"></a>
+</nav>
+<div class="nav_counter"><span class="current">11</span> / <span class="total">11</span></div>
+
+<div class="hero_bg" aria-hidden="true">
+  <div class="hero_bokeh spot_1"></div>
+  <div class="hero_bokeh spot_2"></div>
+  <div class="hero_bokeh spot_3"></div>
+</div>
+
+<main class="page_content" id="remerciements">
+
+  <img src="assets/images/LOGO_PEAKLY_ZOOM.png" alt="Peakly" style="max-width:340px; width:100%; height:auto; margin:0 auto 18px; display:block;"></img>
+  <h2 style="text-align:center">Thank You for listening !</h2>
+  <p style="color:var(--color-text); margin:0 auto;">Investir dans Peakly, c'est investir dans l'infrastructure de sourcing de la prochaine génération d'artistes.</p>
+  <p style="color:var(--color-text-muted); margin:0 auto;">Structurer la découverte musicale. Accélérer l'investissement dans les talents émergents.</p>
+
+
+  <div class="video_card" style="border: hidden; box-shadow: none; margin-top: 24px;">
+    <video src="assets/videos/danceuse.mp4" muted loop playsinline preload="metadata"></video>
+    <div class="video_play_icon">
+      <svg width="auto" height="46" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+    </div>
+  </div>
+
+    <p class="footer_line" style="margin-top:24px;">© 2025–2026 Peakly, document de présentation du projet, Wild Code School.</p>
+</main>
+
+<script src="js/cursor.js"></script>
+<script src="js/transitions.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/money_animate.js"></script>
+<script src="js/audio-ambient.js"></script>
+<script src="js/video.js"></script>
+
+</body>
+</html>
